@@ -11,7 +11,7 @@
         <viewmodels:WeatherViewModel/>
     </Page.DataContext>
 
-    <Pivot Title="My Weather">
+    <Pivot Title="My Weather" Margin="0,40,0,0">
         <PivotItem Header="Weather">
             <views:WeatherView DataContext="{Binding}"/>
         </PivotItem>

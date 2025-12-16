@@ -128,8 +128,6 @@ namespace MyWeather.Uno.ViewModels
                 var unit = IsImperial ? "F" : "C";
                 Temp = $"Temp: {weatherRoot?.MainWeather?.Temperature ?? 0}°{unit}";
                 Condition = $"{weatherRoot.Name}: {weatherRoot?.Weather?[0]?.Description ?? string.Empty}";
-
-                await SpeakTextAsync(Temp + " " + Condition);
             }
             catch (Exception ex)
             {
@@ -179,26 +177,5 @@ namespace MyWeather.Uno.ViewModels
 
             await dialog.ShowAsync();
         }
-
-        private async Task SpeakTextAsync(string text)
-        {
-            try
-            {
-                var synthesizer = new SpeechSynthesizer();
-                var stream = await synthesizer.SynthesizeTextToStreamAsync(text);
-                // Note: For full TTS playback, you'd need a MediaElement, but this demonstrates the API
-                System.Diagnostics.Debug.WriteLine($"TTS: {text}");
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"TTS failed: {ex.Message}");
-            }
-        }
-    }
-
-    // Extension class to expose MainWindow
-    public partial class App
-    {
-        public static new Window MainWindow { get; set; }
     }
 }
