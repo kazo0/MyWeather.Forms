@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "MyWeatherApp.UnoFull",
+  "display": "standalone",
+  "name": "MyWeatherApp.UnoFull",
+  "short_name": "MyWeatherApp.UnoFull",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

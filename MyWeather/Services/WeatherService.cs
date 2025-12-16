@@ -13,9 +13,9 @@ namespace MyWeather.Services
 
     public class WeatherService
     {
-        const string WeatherCoordinatesUri = "http://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&units={2}&appid=fc9f6c524fc093759cd28d41fda89a1b";
-        const string WeatherCityUri = "http://api.openweathermap.org/data/2.5/weather?q={0}&units={1}&appid=fc9f6c524fc093759cd28d41fda89a1b";
-        const string ForecaseUri = "http://api.openweathermap.org/data/2.5/forecast?id={0}&units={1}&appid=fc9f6c524fc093759cd28d41fda89a1b";
+        const string WeatherCoordinatesUri = "https://api.openweathermap.org/data/2.5/weather?lat={0}&lon={1}&units={2}&appid=INSERT-KEY-HERE";
+        const string WeatherCityUri = "https://api.openweathermap.org/data/2.5/weather?q={0}&units={1}&appid=INSERT-KEY-HERE";
+        const string ForecaseUri = "https://api.openweathermap.org/data/2.5/forecast?id={0}&units={1}&appid=INSERT-KEY-HERE";
 
         public async Task<WeatherRoot> GetWeather(double latitude, double longitude, Units units = Units.Imperial)
         {

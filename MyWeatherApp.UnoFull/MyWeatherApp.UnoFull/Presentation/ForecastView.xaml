@@ -1,0 +1,64 @@
+﻿<Page x:Class="MyWeatherApp.UnoFull.Presentation.ForecastView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MyWeatherApp.UnoFull.Presentation"
+      xmlns:models="using:MyWeatherApp.UnoFull.Models"
+      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      uen:Region.Attached="True"
+      uen:Region.Name="Forecast"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="8,0">
+        <!-- Forecast List -->
+        <ListView ItemsSource="{Binding Forecast}"
+                  SelectionMode="None"
+                  MaxWidth="1200">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:WeatherRoot">
+                    <Grid Padding="12,8" 
+                          ColumnSpacing="12"
+                          MaxWidth="800">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Weather Icon -->
+                        <Image Grid.Column="0"
+                               Width="44" 
+                               Height="44"
+                               VerticalAlignment="Center">
+                            <Image.Source>
+                                <BitmapImage UriSource="{Binding DisplayIcon}"/>
+                            </Image.Source>
+                        </Image>
+
+                        <!-- Weather Info -->
+                        <StackPanel Grid.Column="1" 
+                                    Spacing="4"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="{Binding DisplayTemp}"
+                                       Foreground="#3498db"
+                                       FontWeight="SemiBold"
+                                       FontSize="16"
+                                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                            <TextBlock Text="{Binding DisplayDate}" 
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       FontSize="12"
+                                       Style="{StaticResource CaptionTextBlockStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Loading Indicator -->
+        <ProgressRing IsActive="{Binding IsBusy}" 
+                      Width="48" 
+                      Height="48"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Visibility="{Binding IsBusy}"/>
+    </Grid>
+</Page>
