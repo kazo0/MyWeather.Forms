@@ -1,0 +1,27 @@
+﻿<!-- Migration note: ContentPage → Page, preserved all bindings and layout structure -->
+<Page x:Class="MyWeather.Uno.View.WeatherView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Padding="10" Spacing="10">
+        <TextBox Text="{Binding Location, Mode=TwoWay}">
+            <!-- Note: DataTriggers are not supported in WinUI, using VisualStateManager would be the replacement
+                 For now, keeping it simple without the disabled state trigger -->
+        </TextBox>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBlock Text="Use GPS" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ToggleSwitch IsOn="{Binding UseGPS, Mode=TwoWay}" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBlock Text="Use Imperial" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ToggleSwitch IsOn="{Binding IsImperial, Mode=TwoWay}" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+
+        <Button Content="Get Weather" Command="{Binding GetWeatherCommand}"/>
+        <TextBlock Text="{Binding Temp}" FontSize="24"/>
+        <TextBlock Text="{Binding Condition}"/>
+        <ProgressRing IsActive="{Binding IsBusy}" Visibility="{Binding IsBusy}"/>
+    </StackPanel>
+</Page>

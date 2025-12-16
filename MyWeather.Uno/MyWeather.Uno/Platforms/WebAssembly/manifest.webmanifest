@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "MyWeather.Uno",
+  "display": "standalone",
+  "name": "MyWeather.Uno",
+  "short_name": "MyWeather.Uno",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
